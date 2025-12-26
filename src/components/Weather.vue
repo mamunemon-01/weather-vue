@@ -1,6 +1,6 @@
 <template>
   <div class="container p-0">
-    <div class="d-flex">
+    <div class="d-flex mb-2">
       <div class="card main-div w-100">
         <div class="p-3">
           <h2 class="mb-1 day">Tuesday</h2>
@@ -30,6 +30,7 @@
             </tr>
           </tbody>
         </table>
+        <DayWeather></DayWeather>
         <div id="chg_btn_div" class="d-flex justify-content-center m-3">
           <form action="">
             <input type="button" value="Change Location" class="btn change-btn btn-primary">
@@ -41,8 +42,20 @@
 </template>
 
 <script>
+import DayWeather from './DayWeather.vue'
+
 export default {
   name: 'theWeather',
+  components: {
+    DayWeather
+  },
+  props: {
+    city: String,
+  },
+  data() {
+    return {
+    }
+  }
 }
 </script>
 

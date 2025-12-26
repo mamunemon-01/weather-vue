@@ -6,10 +6,10 @@
         <div class="searchbar w-50 mx-2">
           <input type="text" class="input form-control" v-model="city" placeholder="Enter a City Name">
         </div>
-        <button class="btn btn-primary btn-search">Search <i class="fas fa-search"></i></button>
+        <button class="btn btn-primary btn-search" @click="fetchWeather">Search <i class="fas fa-search"></i></button>
       </div>
     </div>
-    <Weather></Weather>
+    <Weather :city="city" v-if="showWeather"></Weather>
   </div>
 </template>
 
