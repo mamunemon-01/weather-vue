@@ -30,7 +30,7 @@
             </tr>
           </tbody>
         </table>
-        <DayWeather></DayWeather>
+        <DayWeather :cityName="cityName"></DayWeather>
         <div id="chg_btn_div" class="d-flex justify-content-center m-3">
           <form action="">
             <input type="button" value="Change Location" class="btn change-btn btn-primary">
@@ -63,7 +63,7 @@ export default {
       humidity: null,
       windSpeed: null,
       seaLevel: null,
-      cityName: null,
+      cityName: this.city,
       country: null,
     }
   },
