@@ -33,7 +33,7 @@
         <DayWeather :cityName="cityName"></DayWeather>
         <div id="chg_btn_div" class="d-flex justify-content-center m-3">
           <form action="">
-            <input type="button" value="Change Location" class="btn change-btn btn-primary">
+            <input type="button" @click="resetView" value="Change Location" class="btn change-btn btn-primary">
           </form>
         </div>
       </div>
@@ -85,6 +85,11 @@ export default {
     this.seaLevel = weatherData.main.sea_level || 'N/A';
     this.cityName = weatherData.name;
     this.country = weatherData.sys.country;
+  },
+  methods: {
+    resetView() {
+      window.location.reload();
+    }
   }
 }
 </script>
@@ -107,5 +112,8 @@ export default {
     border-radius: 20px;
     color: #ffffff;
     background-color: rgba(0, 0, 0, 0.5);
+  }
+  #chg_btn_div .change-btn {
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
   }
 </style>
