@@ -1,7 +1,7 @@
 <template>
   <div class="day-tab text-center">
-    <div class="loading text-light">Loading...</div>
-    <div class="d-flex justify-content-between">
+    <div v-if="isLoading" class="loading text-light">Loading...</div>
+    <div v-else class="d-flex justify-content-between">
       <div v-for="day in dailyForecast" :key="day.day" class="card mx-3 w-100">
         <div class="py-3">{{ day.day }}</div>
         <div class="py-3"><img :src="day.iconUrl"></div>
@@ -19,6 +19,7 @@ export default {
   },
   data() {
     return {
+      isLoading: true,
       dailyForecast: []
     }
   },
@@ -47,6 +48,7 @@ export default {
         }
         if (this.dailyForecast.length === 4) break;
       }
+      this.isLoading = false;
     }
   }
 }
