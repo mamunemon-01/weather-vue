@@ -70,7 +70,12 @@ export default {
   async created() {
     const apiString = `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=metric&appid=21bfb338ac807e5f3c77d75cf67e65fc`;
     // console.log(apiString);
-    const response = await axios.get(apiString);
+    const response = await axios.get(apiString).catch(error => {
+      console.error("Error fetching weather data:", error);
+      this.resetView();
+      // Show some user-friendly message
+      alert("Failed to fetch weather data. Please, try changing the location.");
+    });
     const weatherData = response.data;
     console.log(weatherData);
     this.temperature = Math.round(weatherData.main.temp);
